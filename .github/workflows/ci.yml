@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install mise
+        uses: jdx/mise-action@v5
+
+      - name: Install dependencies
+        run: mise run init
+
+      - name: Run format
+        run: mise run format
+
+      - name: Run lint
+        run: mise run lint
+
+      - name: Run types
+        run: mise run types
+
+      - name: Run tests
+        run: mise run test
