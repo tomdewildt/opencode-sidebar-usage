@@ -1,0 +1,27 @@
+[tools]
+bun = "1.4.2"
+node = "24.13.1"
+
+[tasks.init]
+description = "Initialize the environment"
+run = "bun install --frozen-lockfile"
+
+[tasks.build]
+description = "Build the plugin bundle"
+run = "bun run build"
+
+[tasks.lint]
+description = "Run lint check"
+run = "bun run lint"
+
+[tasks.format]
+description = "Run format check"
+run = "bun run format"
+
+[tasks.types]
+description = "Run type check"
+run = "bun run types"
+
+[tasks.test]
+description = "Run tests"
+run = "bun run test"
